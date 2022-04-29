@@ -1,5 +1,6 @@
 import { useMatch, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Button } from '@mui/material'
 
 const Brewery = () => {
   //useNavigation can also be used to achieve the same thing
@@ -15,7 +16,7 @@ const Brewery = () => {
   return (
     <div>
       {clickedBrewery.name}
-      <button onClick={() => history('/')}>click me </button>
+      <Button onClick={() => history('/')}> Go back </Button>
     </div>
   )
 }

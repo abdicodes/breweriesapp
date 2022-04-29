@@ -11,10 +11,12 @@ import {
   CardContent,
   CardActions,
   Button,
+  CardHeader,
 } from '@mui/material/'
 import { fetchApi } from './reducers/apiReducer'
 import Brewery from './components/Brewery'
 import SearchAppBar from './SearchBar'
+import Home from './components/Home'
 
 function App() {
   const navigate = useNavigate()
@@ -34,31 +36,10 @@ function App() {
     <Box bgcolor="#E9967A">
       <CssBaseline />
       <Box>
-        <SearchAppBar breweries={breweries} />
         <Routes>
           <Route path="/:id" element={<Brewery />} />
+          <Route path="/" element={<Home list={breweries} />} />
         </Routes>
-        <Container maxWidth="md">
-          <Grid container spacing={4}>
-            {breweries.map((e, i) => (
-              <Grid key={i} item>
-                <Card>
-                  <CardContent>
-                    <Typography variant="h10">name: {e.name}</Typography>
-                    <Typography>Brewey Type: {e.brewery_type}</Typography>
-                    <Typography>City: {e.city}</Typography>
-                    <CardActions>
-                      <Button onClick={() => navigate(`/${e.id}`)}>
-                        {' '}
-                        View details
-                      </Button>
-                    </CardActions>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
       </Box>
     </Box>
   )
