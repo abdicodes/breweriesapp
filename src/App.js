@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   Grid,
@@ -17,6 +17,7 @@ import Brewery from './components/Brewery'
 import SearchAppBar from './SearchBar'
 
 function App() {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
     <Box bgcolor="#E9967A">
       <CssBaseline />
       <Box>
-        <SearchAppBar />
+        <SearchAppBar breweries={breweries} />
         <Routes>
           <Route path="/:id" element={<Brewery />} />
         </Routes>
@@ -47,7 +48,10 @@ function App() {
                     <Typography>Brewey Type: {e.brewery_type}</Typography>
                     <Typography>City: {e.city}</Typography>
                     <CardActions>
-                      <Button> View details</Button>
+                      <Button onClick={() => navigate(`/${e.id}`)}>
+                        {' '}
+                        View details
+                      </Button>
                     </CardActions>
                   </CardContent>
                 </Card>

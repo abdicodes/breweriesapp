@@ -53,9 +53,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function SearchAppBar() {
+export default function SearchAppBar({ breweries }) {
   const [searchInput, setSearchInput] = useState('')
-  console.log(searchInput)
+
+  let keys
+  //to get an array of properties that each brewery has.
+  if (breweries.length > 0) {
+    keys = Object.keys(breweries[0])
+  }
+  const searchResult = (breweries) => {
+    return breweries.filter((element) =>
+      keys.some((key) => element[key]?.toLowerCase().includes(searchInput))
+    )
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
