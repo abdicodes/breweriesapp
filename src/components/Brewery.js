@@ -10,9 +10,8 @@ const Brewery = () => {
   const clickedBrewery = breweries.find(
     (element) => element.id === match.params.id
   )
-  console.log(clickedBrewery)
 
-  if (!match) return null
+  if (!clickedBrewery) return null
   return (
     <div>
       {clickedBrewery.name}

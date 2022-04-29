@@ -16,7 +16,7 @@ const brewerySlice = createSlice({
 export const fetchApi = () => {
   return async (dispatch) => {
     const response = await breweriesApi.getAll()
-    console.log(response)
+
     dispatch(fetchAll(response))
   }
 }
