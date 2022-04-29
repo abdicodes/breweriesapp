@@ -6,7 +6,7 @@ const Brewery = () => {
   //useNavigation can also be used to achieve the same thing
   const history = useNavigate()
   const match = useMatch('/:id')
-  console.log(match.params.id)
+
   const breweries = useSelector((state) => state.reducer)
   const clickedBrewery = breweries.find(
     (element) => element.id === match.params.id

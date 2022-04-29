@@ -1,15 +1,16 @@
 import * as React from 'react'
-import { useState } from 'react'
 import { styled, alpha } from '@mui/material/styles'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import InputBase from '@mui/material/InputBase'
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
-import { Button } from '@mui/material'
+import {
+  Button,
+  Typography,
+  InputBase,
+  IconButton,
+  Toolbar,
+  AppBar,
+  Box,
+} from '@mui/material'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,20 +54,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function SearchAppBar({ breweries }) {
-  const [searchInput, setSearchInput] = useState('')
-
-  let keys
+export default function SearchAppBar({ breweries, filteringList }) {
+  // let keys
   //to get an array of properties that each brewery has.
-  if (breweries.length > 0) {
-    keys = Object.keys(breweries[0])
-  }
-  const searchResult = (breweries) => {
-    return breweries.filter((element) =>
-      keys.some((key) => element[key]?.toLowerCase().includes(searchInput))
-    )
-  }
+  // if (breweries.length > 0) {
+  //   keys = Object.keys(breweries[0])
+  // }
+  // const searchResult = (breweries) => {
+  //   return breweries.filter((element) =>
+  //     keys.some((key) => element[key]?.toLowerCase().includes(searchInput))
+  //   )
+  // }
 
+  const filterKeyword = (e) => {
+    filteringList(e.target.value)
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -95,7 +97,7 @@ export default function SearchAppBar({ breweries }) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-              onChange={(e) => setSearchInput(e.target.value)}
+              onChange={filterKeyword}
             />
           </Search>
           <Button color="secondary"> search</Button>

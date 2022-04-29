@@ -9,17 +9,38 @@ import {
   CardActions,
   Box,
 } from '@mui/material'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SearchAppBar from '../SearchBar'
 const Home = ({ list }) => {
+  const [filtered, setFiltered] = useState(list)
+  useEffect(() => {
+    setFiltered(list)
+  }, [list])
+
+  const filteredList = (SearchInput) => {
+    // setFiltered(SearchInput)
+    if (!SearchInput) setFiltered(list)
+    let keys = Object.keys(list[0])
+    setFiltered(
+      list.filter((element) =>
+        keys.some((key) =>
+          element[key]?.toLowerCase().includes(SearchInput.toLowerCase())
+        )
+      )
+    )
+  }
+
   const navigate = useNavigate()
+  if (!list) return null
 
   return (
     <Box>
-      <SearchAppBar breweries={list} />
+      <SearchAppBar breweries={list} filteringList={filteredList} />
+      {filtered.length === 0 && <div> No matching result found</div>}
       <Container maxWidth="lg">
         <Grid container spacing={3}>
-          {list.map((e, i) => (
+          {filtered.map((e, i) => (
             <Grid
               key={i}
               item
