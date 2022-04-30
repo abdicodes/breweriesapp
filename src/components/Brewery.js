@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 
 const Brewery = () => {
-  //useNavigation can also be used to achieve the same thing
+  // useHistory is deprecated! useNavigate does the same thing
   const history = useNavigate()
   const match = useMatch('/:id')
 
@@ -34,8 +34,15 @@ const Brewery = () => {
           <CardHeader title={clickedBrewery.name} />
 
           <CardContent>
-            <Typography>Brewey Type: {clickedBrewery.brewery_type}</Typography>
-            <Typography>City: {clickedBrewery.city}</Typography>
+            {Object.entries(clickedBrewery).map((array, i) =>
+              array[1] !== null ? (
+                array[0] !== 'id' ? (
+                  <Typography key={i}>
+                    {array[0].split('_').join(' ')} is {array[1]}
+                  </Typography>
+                ) : null
+              ) : null
+            )}
             <CardActions>
               <Button onClick={() => history('/')}> Go back </Button>
             </CardActions>
