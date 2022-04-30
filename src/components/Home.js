@@ -39,7 +39,7 @@ const Home = ({ list }) => {
   return (
     <Box
       style={{
-        margin: '50px 100px 50px',
+        margin: '3ch',
       }}
     >
       <Avatar
@@ -47,9 +47,10 @@ const Home = ({ list }) => {
         alt="The image"
         src={myImage}
         style={{
-          width: 300,
-          height: 160,
-          alignSelf: 'strech',
+          width: 400,
+          height: 150,
+          alignSelf: 'center',
+          paddingLeft: '10ch',
         }}
       />
       <SearchAppBar breweries={list} filteringList={filteredList} />

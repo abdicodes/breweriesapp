@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { styled, alpha } from '@mui/material/styles'
 import SearchIcon from '@mui/icons-material/Search'
-import { InputBase, Toolbar, AppBar, Box } from '@mui/material'
+import { InputBase, Toolbar, AppBar, Box, Container } from '@mui/material'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -45,13 +45,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function SearchAppBar({ breweries, filteringList }) {
+export default function SearchAppBar({ filteringList }) {
   const filterKeyword = (e) => {
     filteringList(e.target.value)
   }
   return (
-    <Box style={{ position: 'relative', margin: '20px 20px 20px 20px ' }}>
-      <AppBar position="static">
+    <Container
+      maxWidth="lg"
+      style={{
+        position: 'relative',
+        padding: '20px 20px 20px 20px ',
+      }}
+    >
+      <AppBar position="relative">
         <Toolbar>
           <Search>
             <SearchIconWrapper>
@@ -65,6 +71,6 @@ export default function SearchAppBar({ breweries, filteringList }) {
           </Search>
         </Toolbar>
       </AppBar>
-    </Box>
+    </Container>
   )
 }
