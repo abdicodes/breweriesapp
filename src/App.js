@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './assets/theme'
+import myImage from './assets/img.png'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   // Grid,
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box bgcolor="#E9967A">
+      <Box>
         <CssBaseline />
         <Box>
           <Routes>

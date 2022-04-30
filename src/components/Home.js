@@ -8,7 +8,9 @@ import {
   CardHeader,
   CardActions,
   Box,
+  Avatar,
 } from '@mui/material'
+import myImage from '../assets/img.png'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SearchAppBar from '../SearchBar'
@@ -35,7 +37,21 @@ const Home = ({ list }) => {
   if (!list) return null
 
   return (
-    <Box>
+    <Box
+      style={{
+        margin: '50px 100px 50px',
+      }}
+    >
+      <Avatar
+        variant={'rounded'}
+        alt="The image"
+        src={myImage}
+        style={{
+          width: 400,
+          height: 200,
+          alignSelf: 'strech',
+        }}
+      />
       <SearchAppBar breweries={list} filteringList={filteredList} />
       {filtered.length === 0 && <div> No matching result found</div>}
       <Container maxWidth="lg">

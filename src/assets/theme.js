@@ -1,10 +1,17 @@
 import { createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
+  root: {
+    hover: {
+      '&:hover': {
+        backgroundColor: 'rgb(7, 177, 77, 0.42)',
+      },
+    },
+  },
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#a5d6a7',
+      main: '#6d4c41',
 
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
@@ -22,7 +29,29 @@ const theme = createTheme({
     // two indexes within its tonal palette.
     // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.2,
+    background: {
+      paper: '#bcaaa4',
+      default: '#d7ccc8',
+    },
+    text: {
+      primary: '#173A5E',
+      secondary: '#46505A',
+    },
+    action: {
+      active: '#001E3C',
+      hoverOpacity: '0.3',
+    },
   },
 })
+
+// import { createTheme } from '@mui/material/styles'
+
+// const theme = createTheme({
+//   palette: {
+
+//   },
+// })
+
+// export default theme
 
 export default theme
