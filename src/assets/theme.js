@@ -23,7 +23,7 @@ const theme = createTheme({
       default: '#d7ccc8',
     },
     text: {
-      primary: '#173A5E',
+      primary: '#38003b',
       secondary: '#46505A',
     },
     action: {

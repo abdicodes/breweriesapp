@@ -47,8 +47,8 @@ const Home = ({ list }) => {
         alt="The image"
         src={myImage}
         style={{
-          width: 400,
-          height: 200,
+          width: 300,
+          height: 160,
           alignSelf: 'strech',
         }}
       />
