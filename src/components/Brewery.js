@@ -1,5 +1,6 @@
 import { useMatch, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import dateConverter from '../assets/dateConverter'
 import {
   Box,
   Button,
@@ -38,7 +39,10 @@ const Brewery = () => {
               array[1] !== null ? (
                 array[0] !== 'id' ? (
                   <Typography key={i}>
-                    {array[0].split('_').join(' ')} is {array[1]}
+                    {array[0].split('_').join(' ')} :{' '}
+                    {array[0].includes('_at')
+                      ? dateConverter(array[1])
+                      : array[1]}
                   </Typography>
                 ) : null
               ) : null
