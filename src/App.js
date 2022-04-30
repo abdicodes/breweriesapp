@@ -2,20 +2,8 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './assets/theme'
-import myImage from './assets/img.png'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  // Grid,
-  CssBaseline,
-  // Typography,
-  Box,
-  // Container,
-  // Card,
-  // CardContent,
-  // CardActions,
-  // Button,
-  // CardHeader,
-} from '@mui/material/'
+import { CssBaseline, Box } from '@mui/material/'
 import { fetchApi } from './reducers/apiReducer'
 import Brewery from './components/Brewery'
 import Home from './components/Home'

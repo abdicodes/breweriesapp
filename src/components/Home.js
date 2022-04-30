@@ -15,15 +15,15 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SearchAppBar from '../SearchBar'
 const Home = ({ list }) => {
-  const [filtered, setFiltered] = useState(list)
+  const [filtered, setFiltered] = useState(list) //filtered list based on user input if input is '' full list is displayed
   useEffect(() => {
     setFiltered(list)
   }, [list])
 
   const filteredList = (SearchInput) => {
-    // setFiltered(SearchInput)
     if (!SearchInput) setFiltered(list)
-    let keys = Object.keys(list[0])
+
+    let keys = Object.keys(list[0]) // to get each item property names in order to search in all properties for match
     setFiltered(
       list.filter((element) =>
         keys.some((key) =>

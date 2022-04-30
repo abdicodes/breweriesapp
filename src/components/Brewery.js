@@ -18,11 +18,13 @@ const Brewery = () => {
   const history = useNavigate()
   const match = useMatch('/:id')
 
+  // to pull all breweries object from the Redux store and find a specific element using match hook
   const breweries = useSelector((state) => state.reducer)
   const clickedBrewery = breweries.find(
     (element) => element.id === match.params.id
   )
 
+  // this is to prevent rendering error when information are yet to be pulled from redux store
   if (!clickedBrewery) return null
   return (
     <Box

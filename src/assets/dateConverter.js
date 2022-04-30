@@ -1,3 +1,5 @@
+// helper function to convert the data/time into more readable format YYYY MM DD  HH: MM
+
 const dateConverter = (string) => {
   const date = new Date(string)
   const mm = date.getMonth() + 1 // getMonth() is zero-based
