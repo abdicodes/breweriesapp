@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material/styles'
+import theme from './assets/theme'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   // Grid,
@@ -30,15 +32,17 @@ function App() {
   if (!breweries) return null
 
   return (
-    <Box bgcolor="#E9967A">
-      <CssBaseline />
-      <Box>
-        <Routes>
-          <Route path="/:id" element={<Brewery />} />
-          <Route path="/" element={<Home list={breweries} />} />
-        </Routes>
+    <ThemeProvider theme={theme}>
+      <Box bgcolor="#E9967A">
+        <CssBaseline />
+        <Box>
+          <Routes>
+            <Route path="/:id" element={<Brewery />} />
+            <Route path="/" element={<Home list={breweries} />} />
+          </Routes>
+        </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   )
 }
 

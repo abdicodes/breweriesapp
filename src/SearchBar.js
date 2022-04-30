@@ -73,7 +73,7 @@ export default function SearchAppBar({ breweries, filteringList }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -89,7 +89,7 @@ export default function SearchAppBar({ breweries, filteringList }) {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
             MUI
-          </Typography>
+          </Typography> */}
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -100,7 +100,6 @@ export default function SearchAppBar({ breweries, filteringList }) {
               onChange={filterKeyword}
             />
           </Search>
-          <Button color="secondary"> search</Button>
         </Toolbar>
       </AppBar>
     </Box>
